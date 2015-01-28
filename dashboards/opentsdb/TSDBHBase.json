@@ -18,12 +18,162 @@
       "collapse": false,
       "panels": [
         {
-          "title": "TSD HBase Latency: $host",
+          "title": "TSD HBase Compactions: $host",
           "error": false,
           "span": 6,
           "editable": true,
           "type": "graph",
-          "id": 1,
+          "id": 4,
+          "datasource": null,
+          "renderer": "flot",
+          "x-axis": true,
+          "y-axis": true,
+          "y_formats": [
+            "short",
+            "short"
+          ],
+          "grid": {
+            "leftMax": null,
+            "rightMax": null,
+            "leftMin": 0,
+            "rightMin": null,
+            "threshold1": null,
+            "threshold2": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "lines": true,
+          "fill": 1,
+          "linewidth": 2,
+          "points": true,
+          "pointradius": 1,
+          "bars": false,
+          "stack": false,
+          "percentage": false,
+          "legend": {
+            "show": true,
+            "values": true,
+            "min": true,
+            "max": true,
+            "current": true,
+            "total": false,
+            "avg": true,
+            "alignAsTable": true
+          },
+          "nullPointMode": "connected",
+          "steppedLine": false,
+          "tooltip": {
+            "value_type": "cumulative",
+            "shared": false
+          },
+          "targets": [
+            {
+              "errors": {
+                "downsampleInterval": "Invalid interval string, expexcting a number followed by one of \"Mwdhmsy\""
+              },
+              "aggregator": "avg",
+              "downsampleAggregator": "avg",
+              "metric": "tsd.compaction.count",
+              "shouldDownsample": true,
+              "downsampleInterval": "$interval",
+              "currentTagKey": "",
+              "currentTagValue": "",
+              "tags": {
+                "host": "$host"
+              },
+              "shouldComputeRate": true,
+              "alias": ""
+            },
+            {
+              "errors": {
+                "downsampleInterval": "Invalid interval string, expexcting a number followed by one of \"Mwdhmsy\""
+              },
+              "aggregator": "avg",
+              "downsampleAggregator": "avg",
+              "metric": "tsd.compaction.deletes",
+              "shouldDownsample": true,
+              "downsampleInterval": "$interval",
+              "currentTagKey": "",
+              "currentTagValue": "",
+              "tags": {
+                "host": "$host"
+              },
+              "shouldComputeRate": true,
+              "alias": ""
+            },
+            {
+              "errors": {
+                "downsampleInterval": "Invalid interval string, expexcting a number followed by one of \"Mwdhmsy\""
+              },
+              "aggregator": "avg",
+              "downsampleAggregator": "avg",
+              "metric": "tsd.compaction.errors",
+              "shouldDownsample": true,
+              "downsampleInterval": "$interval",
+              "currentTagKey": "",
+              "currentTagValue": "",
+              "tags": {
+                "host": "$host"
+              },
+              "shouldComputeRate": true,
+              "alias": ""
+            },
+            {
+              "errors": {
+                "downsampleInterval": "Invalid interval string, expexcting a number followed by one of \"Mwdhmsy\""
+              },
+              "aggregator": "avg",
+              "downsampleAggregator": "avg",
+              "metric": "tsd.compaction.queue.size",
+              "shouldDownsample": true,
+              "downsampleInterval": "$interval",
+              "currentTagKey": "",
+              "currentTagValue": "",
+              "tags": {
+                "host": "$host"
+              },
+              "shouldComputeRate": false,
+              "alias": "Compaction Queue Size  (Y2)"
+            },
+            {
+              "errors": {
+                "downsampleInterval": "Invalid interval string, expexcting a number followed by one of \"Mwdhmsy\""
+              },
+              "aggregator": "avg",
+              "downsampleAggregator": "avg",
+              "metric": "tsd.compaction.writes",
+              "shouldDownsample": true,
+              "downsampleInterval": "$interval",
+              "currentTagKey": "",
+              "currentTagValue": "",
+              "tags": {
+                "host": "$host"
+              },
+              "shouldComputeRate": true,
+              "alias": ""
+            }
+          ],
+          "aliasColors": {
+            "tsd.rpc.received{host=tpmint, type=telnet}": "#0A437C",
+            "tsd.rpc.received{host=tpmint, type=http}": "#BF1B00"
+          },
+          "seriesOverrides": [
+            {
+              "alias": "Compaction Queue Size  (Y2)",
+              "yaxis": 2
+            }
+          ],
+          "links": [],
+          "leftYAxisLabel": "Compaction Ops Rate",
+          "height": "300"
+        },
+        {
+          "title": "TSD HBase RPC Rate: $host",
+          "error": false,
+          "span": 6,
+          "editable": true,
+          "type": "graph",
+          "id": 3,
           "datasource": null,
           "renderer": "flot",
           "x-axis": true,
@@ -73,74 +223,34 @@
               },
               "aggregator": "avg",
               "downsampleAggregator": "avg",
-              "metric": "tsd.hbase.latency_50pct",
+              "metric": "tsd.hbase.rpcs",
               "shouldDownsample": true,
               "downsampleInterval": "$interval",
               "currentTagKey": "",
               "currentTagValue": "",
               "tags": {
                 "host": "$host",
-                "class": "$class",
-                "method": "$method"
-              }
-            },
-            {
-              "errors": {
-                "downsampleInterval": "Invalid interval string, expexcting a number followed by one of \"Mwdhmsy\""
+                "type": "$rpctype"
               },
-              "aggregator": "avg",
-              "downsampleAggregator": "avg",
-              "metric": "tsd.hbase.latency_75pct",
-              "shouldDownsample": true,
-              "downsampleInterval": "$interval",
-              "currentTagKey": "",
-              "currentTagValue": "",
-              "tags": {
-                "host": "$host",
-                "class": "$class",
-                "method": "$method"
-              }
-            },
-            {
-              "errors": {
-                "downsampleInterval": "Invalid interval string, expexcting a number followed by one of \"Mwdhmsy\""
-              },
-              "aggregator": "avg",
-              "downsampleAggregator": "avg",
-              "metric": "tsd.hbase.latency_90pct",
-              "shouldDownsample": true,
-              "downsampleInterval": "$interval",
-              "currentTagKey": "",
-              "currentTagValue": "",
-              "tags": {
-                "host": "$host",
-                "class": "$class",
-                "method": "$method"
-              }
-            },
-            {
-              "errors": {
-                "downsampleInterval": "Invalid interval string, expexcting a number followed by one of \"Mwdhmsy\""
-              },
-              "aggregator": "avg",
-              "downsampleAggregator": "avg",
-              "metric": "tsd.hbase.latency_95pct",
-              "shouldDownsample": true,
-              "downsampleInterval": "$interval",
-              "currentTagKey": "",
-              "currentTagValue": "",
-              "tags": {
-                "host": "$host",
-                "class": "$class",
-                "method": "$method"
-              }
+              "shouldComputeRate": true
             }
           ],
-          "aliasColors": {},
+          "aliasColors": {
+            "tsd.rpc.received{host=tpmint, type=telnet}": "#0A437C",
+            "tsd.rpc.received{host=tpmint, type=http}": "#BF1B00"
+          },
           "seriesOverrides": [],
           "links": [],
-          "leftYAxisLabel": "Connections"
-        },
+          "leftYAxisLabel": "RPC Rate"
+        }
+      ]
+    },
+    {
+      "title": "New row",
+      "height": "250px",
+      "editable": true,
+      "collapse": false,
+      "panels": [
         {
           "title": "TSD HBase Meta Lookups: $host",
           "error": false,
@@ -232,23 +342,15 @@
           "seriesOverrides": [],
           "links": [],
           "leftYAxisLabel": "Lookup Rate",
-          "height": "400"
-        }
-      ]
-    },
-    {
-      "title": "New row",
-      "height": "250px",
-      "editable": true,
-      "collapse": false,
-      "panels": [
+          "height": ""
+        },
         {
-          "title": "TSD HBase RPC Rate: $host",
+          "title": "TSD HBase $ptile pct Latency: $host",
           "error": false,
           "span": 6,
           "editable": true,
           "type": "graph",
-          "id": 3,
+          "id": 1,
           "datasource": null,
           "renderer": "flot",
           "x-axis": true,
@@ -283,7 +385,9 @@
             "current": true,
             "total": false,
             "avg": true,
-            "alignAsTable": true
+            "alignAsTable": true,
+            "sortDesc": true,
+            "sort": "current"
           },
           "nullPointMode": "connected",
           "steppedLine": false,
@@ -298,124 +402,22 @@
               },
               "aggregator": "avg",
               "downsampleAggregator": "avg",
-              "metric": "tsd.hbase.rpcs",
+              "metric": "tsd.hbase.latency_[[ptile]]pct",
               "shouldDownsample": true,
               "downsampleInterval": "$interval",
               "currentTagKey": "",
               "currentTagValue": "",
               "tags": {
                 "host": "$host",
-                "type": "$rpctype"
-              },
-              "shouldComputeRate": true
+                "class": "$class",
+                "method": "$method"
+              }
             }
           ],
-          "aliasColors": {
-            "tsd.rpc.received{host=tpmint, type=telnet}": "#0A437C",
-            "tsd.rpc.received{host=tpmint, type=http}": "#BF1B00"
-          },
+          "aliasColors": {},
           "seriesOverrides": [],
           "links": [],
-          "leftYAxisLabel": "RPC Rate"
-        },
-        {
-          "title": "TSD HBase No Such Region Rate: $host",
-          "error": false,
-          "span": 6,
-          "editable": true,
-          "type": "graph",
-          "id": 4,
-          "datasource": null,
-          "renderer": "flot",
-          "x-axis": true,
-          "y-axis": true,
-          "y_formats": [
-            "short",
-            "short"
-          ],
-          "grid": {
-            "leftMax": null,
-            "rightMax": null,
-            "leftMin": 0,
-            "rightMin": null,
-            "threshold1": null,
-            "threshold2": null,
-            "threshold1Color": "rgba(216, 200, 27, 0.27)",
-            "threshold2Color": "rgba(234, 112, 112, 0.22)"
-          },
-          "lines": true,
-          "fill": 1,
-          "linewidth": 2,
-          "points": true,
-          "pointradius": 1,
-          "bars": false,
-          "stack": false,
-          "percentage": false,
-          "legend": {
-            "show": true,
-            "values": true,
-            "min": true,
-            "max": true,
-            "current": true,
-            "total": false,
-            "avg": true,
-            "alignAsTable": true
-          },
-          "nullPointMode": "connected",
-          "steppedLine": false,
-          "tooltip": {
-            "value_type": "cumulative",
-            "shared": false
-          },
-          "targets": [
-            {
-              "errors": {
-                "downsampleInterval": "Invalid interval string, expexcting a number followed by one of \"Mwdhmsy\""
-              },
-              "aggregator": "avg",
-              "downsampleAggregator": "avg",
-              "metric": "tsd.hbase.nsre",
-              "shouldDownsample": true,
-              "downsampleInterval": "$interval",
-              "currentTagKey": "",
-              "currentTagValue": "",
-              "tags": {
-                "host": "$host"
-              },
-              "shouldComputeRate": true,
-              "alias": "No Such Region"
-            },
-            {
-              "errors": {
-                "downsampleInterval": "Invalid interval string, expexcting a number followed by one of \"Mwdhmsy\""
-              },
-              "aggregator": "avg",
-              "downsampleAggregator": "avg",
-              "metric": "tsd.hbase.nsre.rpcs_delayed",
-              "shouldDownsample": true,
-              "downsampleInterval": "$interval",
-              "currentTagKey": "",
-              "currentTagValue": "",
-              "tags": {
-                "host": "$host"
-              },
-              "shouldComputeRate": true,
-              "alias": "RPCs Delayed for NSRE  (Y2)"
-            }
-          ],
-          "aliasColors": {
-            "tsd.rpc.received{host=tpmint, type=telnet}": "#0A437C",
-            "tsd.rpc.received{host=tpmint, type=http}": "#BF1B00"
-          },
-          "seriesOverrides": [
-            {
-              "alias": "RPCs Delayed for NSRE  (Y2)",
-              "yaxis": 2
-            }
-          ],
-          "links": [],
-          "leftYAxisLabel": "No Such Region Rate",
-          "height": "400"
+          "leftYAxisLabel": "RPC Latency"
         }
       ]
     }
@@ -429,6 +431,7 @@
         "5m",
         "15m",
         "1h",
+        "2h",
         "6h",
         "12h",
         "24h",
@@ -454,7 +457,7 @@
     }
   ],
   "time": {
-    "from": "now-1h",
+    "from": "now-2h",
     "to": "now"
   },
   "templating": {
@@ -709,6 +712,37 @@
         "current": {
           "text": "put|scan",
           "value": "put|scan"
+        }
+      },
+      {
+        "type": "custom",
+        "datasource": null,
+        "refresh_on_load": false,
+        "name": "ptile",
+        "options": [
+          {
+            "text": "50",
+            "value": "50"
+          },
+          {
+            "text": "75",
+            "value": "75"
+          },
+          {
+            "text": "90",
+            "value": "90"
+          },
+          {
+            "text": "95",
+            "value": "95"
+          }
+        ],
+        "includeAll": false,
+        "allFormat": "glob",
+        "query": "50, 75, 90, 95",
+        "current": {
+          "text": "95",
+          "value": "95"
         }
       }
     ],
