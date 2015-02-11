@@ -469,17 +469,17 @@
         "name": "host",
         "options": [
           {
-            "text": "pdk-pt-cetsd-01",
-            "value": "pdk-pt-cetsd-01"
+            "text": "tpmint",
+            "value": "tpmint"
           }
         ],
         "includeAll": false,
         "allFormat": "glob",
         "refresh": false,
-        "query": "pdk-pt-cetsd-01",
+        "query": "tpmint",
         "current": {
-          "text": "pdk-pt-cetsd-01",
-          "value": "pdk-pt-cetsd-01"
+          "text": "tpmint",
+          "value": "tpmint"
         }
       },
       {
