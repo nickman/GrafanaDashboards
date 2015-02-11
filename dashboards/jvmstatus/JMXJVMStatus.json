@@ -1,0 +1,629 @@
+{
+  "id": null,
+  "title": "JVM Status",
+  "originalTitle": "JVM Status",
+  "tags": [],
+  "style": "light",
+  "timezone": "browser",
+  "editable": true,
+  "hideControls": false,
+  "sharedCrosshair": true,
+  "rows": [
+    {
+      "title": "Row1",
+      "height": "250px",
+      "editable": true,
+      "collapse": false,
+      "panels": [
+        {
+          "title": "Memory Usage & Capacity ($host / $app)",
+          "error": false,
+          "span": 5,
+          "editable": true,
+          "type": "graph",
+          "id": 4,
+          "datasource": null,
+          "renderer": "flot",
+          "x-axis": true,
+          "y-axis": true,
+          "y_formats": [
+            "percent",
+            "short"
+          ],
+          "grid": {
+            "leftMax": null,
+            "rightMax": null,
+            "leftMin": 0,
+            "rightMin": null,
+            "threshold1": null,
+            "threshold2": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "lines": true,
+          "fill": 1,
+          "linewidth": 2,
+          "points": true,
+          "pointradius": 1,
+          "bars": false,
+          "stack": false,
+          "percentage": false,
+          "legend": {
+            "show": true,
+            "values": true,
+            "min": true,
+            "max": true,
+            "current": true,
+            "total": false,
+            "avg": true,
+            "alignAsTable": true,
+            "hideEmpty": true
+          },
+          "nullPointMode": "connected",
+          "steppedLine": false,
+          "tooltip": {
+            "value_type": "cumulative",
+            "shared": false
+          },
+          "targets": [
+            {
+              "errors": {
+                "downsampleInterval": "Invalid interval string, expexcting a number followed by one of \"Mwdhmsy\""
+              },
+              "aggregator": "avg",
+              "downsampleAggregator": "avg",
+              "metric": "java.lang.memory",
+              "currentTagKey": "",
+              "currentTagValue": "",
+              "tags": {
+                "host": "$host",
+                "app": "$app",
+                "type": "$memtype",
+                "alloc": "$alloc"
+              },
+              "shouldDownsample": true,
+              "downsampleInterval": "$interval"
+            }
+          ],
+          "aliasColors": {},
+          "seriesOverrides": [],
+          "links": [],
+          "leftYAxisLabel": "Percent Used/Capacity"
+        }
+      ]
+    },
+    {
+      "title": "New row",
+      "height": "250px",
+      "editable": true,
+      "collapse": false,
+      "panels": [
+        {
+          "title": "GC Collection Time ($host / $app)",
+          "error": false,
+          "span": 4,
+          "editable": true,
+          "type": "graph",
+          "id": 2,
+          "datasource": null,
+          "renderer": "flot",
+          "x-axis": true,
+          "y-axis": true,
+          "y_formats": [
+            "ms",
+            "short"
+          ],
+          "grid": {
+            "leftMax": null,
+            "rightMax": null,
+            "leftMin": 0,
+            "rightMin": null,
+            "threshold1": null,
+            "threshold2": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "lines": true,
+          "fill": 1,
+          "linewidth": 2,
+          "points": true,
+          "pointradius": 1,
+          "bars": false,
+          "stack": false,
+          "percentage": false,
+          "legend": {
+            "show": true,
+            "values": true,
+            "min": true,
+            "max": true,
+            "current": true,
+            "total": true,
+            "avg": true,
+            "alignAsTable": true,
+            "hideEmpty": true
+          },
+          "nullPointMode": "connected",
+          "steppedLine": false,
+          "tooltip": {
+            "value_type": "cumulative",
+            "shared": false
+          },
+          "targets": [
+            {
+              "errors": {
+                "downsampleInterval": "Invalid interval string, expexcting a number followed by one of \"Mwdhmsy\""
+              },
+              "aggregator": "avg",
+              "downsampleAggregator": "avg",
+              "metric": "java.lang.gc.collectionTimeRate",
+              "currentTagKey": "",
+              "currentTagValue": "",
+              "tags": {
+                "gcname": "*"
+              },
+              "shouldDownsample": true,
+              "downsampleInterval": "$interval",
+              "shouldComputeRate": false
+            }
+          ],
+          "aliasColors": {
+            "java.lang.gc.collectionTimeRate{gcname=ConcurrentMarkSweep}": "#64B0C8",
+            "java.lang.gc.collectionTimeRate{gcname=ParNew}": "#99440A"
+          },
+          "seriesOverrides": [],
+          "links": [],
+          "leftYAxisLabel": "Average Collection Elapsed",
+          "height": "200"
+        },
+        {
+          "title": "GC Collection Events ($host / $app)",
+          "error": false,
+          "span": 4,
+          "editable": true,
+          "type": "graph",
+          "id": 1,
+          "datasource": null,
+          "renderer": "flot",
+          "x-axis": true,
+          "y-axis": true,
+          "y_formats": [
+            "short",
+            "short"
+          ],
+          "grid": {
+            "leftMax": null,
+            "rightMax": null,
+            "leftMin": 0,
+            "rightMin": null,
+            "threshold1": null,
+            "threshold2": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "lines": true,
+          "fill": 1,
+          "linewidth": 2,
+          "points": true,
+          "pointradius": 1,
+          "bars": false,
+          "stack": false,
+          "percentage": false,
+          "legend": {
+            "show": true,
+            "values": true,
+            "min": true,
+            "max": true,
+            "current": true,
+            "total": true,
+            "avg": true,
+            "alignAsTable": true,
+            "hideEmpty": true
+          },
+          "nullPointMode": "connected",
+          "steppedLine": false,
+          "tooltip": {
+            "value_type": "cumulative",
+            "shared": false
+          },
+          "targets": [
+            {
+              "errors": {
+                "downsampleInterval": "Invalid interval string, expexcting a number followed by one of \"Mwdhmsy\""
+              },
+              "aggregator": "sum",
+              "downsampleAggregator": "sum",
+              "metric": "java.lang.gc.collectionCountRate",
+              "currentTagKey": "",
+              "currentTagValue": "",
+              "tags": {
+                "gcname": "*"
+              },
+              "shouldDownsample": true,
+              "downsampleInterval": "$interval",
+              "shouldComputeRate": false
+            }
+          ],
+          "aliasColors": {},
+          "seriesOverrides": [],
+          "links": [],
+          "leftYAxisLabel": "Collections Per Period",
+          "height": "200"
+        },
+        {
+          "title": "Last GC Event ($host / $app)",
+          "error": false,
+          "span": 4,
+          "editable": true,
+          "type": "graph",
+          "id": 5,
+          "datasource": null,
+          "renderer": "flot",
+          "x-axis": true,
+          "y-axis": true,
+          "y_formats": [
+            "bytes",
+            "short"
+          ],
+          "grid": {
+            "leftMax": null,
+            "rightMax": null,
+            "leftMin": 0,
+            "rightMin": null,
+            "threshold1": null,
+            "threshold2": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "lines": true,
+          "fill": 1,
+          "linewidth": 2,
+          "points": true,
+          "pointradius": 1,
+          "bars": false,
+          "stack": false,
+          "percentage": false,
+          "legend": {
+            "show": true,
+            "values": true,
+            "min": true,
+            "max": true,
+            "current": true,
+            "total": true,
+            "avg": true,
+            "alignAsTable": true,
+            "hideEmpty": true
+          },
+          "nullPointMode": "connected",
+          "steppedLine": false,
+          "tooltip": {
+            "value_type": "cumulative",
+            "shared": false
+          },
+          "targets": [
+            {
+              "errors": {
+                "downsampleInterval": "Invalid interval string, expexcting a number followed by one of \"Mwdhmsy\""
+              },
+              "aggregator": "sum",
+              "downsampleAggregator": "sum",
+              "metric": "java.lang.gc.totalFreedOnLastGC",
+              "currentTagKey": "",
+              "currentTagValue": "",
+              "tags": {
+                "host": "$host",
+                "app": "$app",
+                "type": "used"
+              },
+              "shouldDownsample": true,
+              "downsampleInterval": "$interval",
+              "shouldComputeRate": false,
+              "alias": "Used Bytes Freed"
+            }
+          ],
+          "aliasColors": {},
+          "seriesOverrides": [],
+          "links": [],
+          "leftYAxisLabel": "Total Used Bytes Freed",
+          "height": "200"
+        }
+      ]
+    },
+    {
+      "title": "New row",
+      "height": "250px",
+      "editable": true,
+      "collapse": false,
+      "panels": [
+        {
+          "title": "Thread States ($host / $app)",
+          "error": false,
+          "span": 5,
+          "editable": true,
+          "type": "graph",
+          "id": 3,
+          "datasource": null,
+          "renderer": "flot",
+          "x-axis": true,
+          "y-axis": true,
+          "y_formats": [
+            "short",
+            "short"
+          ],
+          "grid": {
+            "leftMax": null,
+            "rightMax": null,
+            "leftMin": 0,
+            "rightMin": null,
+            "threshold1": null,
+            "threshold2": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "lines": true,
+          "fill": 1,
+          "linewidth": 2,
+          "points": true,
+          "pointradius": 1,
+          "bars": false,
+          "stack": false,
+          "percentage": false,
+          "legend": {
+            "show": true,
+            "values": true,
+            "min": true,
+            "max": true,
+            "current": true,
+            "total": true,
+            "avg": true,
+            "alignAsTable": true,
+            "hideEmpty": true
+          },
+          "nullPointMode": "connected",
+          "steppedLine": false,
+          "tooltip": {
+            "value_type": "cumulative",
+            "shared": false
+          },
+          "targets": [
+            {
+              "errors": {
+                "downsampleInterval": "Invalid interval string, expexcting a number followed by one of \"Mwdhmsy\""
+              },
+              "aggregator": "avg",
+              "downsampleAggregator": "avg",
+              "metric": "java.lang.threading.states",
+              "currentTagKey": "",
+              "currentTagValue": "",
+              "tags": {
+                "host": "$host",
+                "state": "*",
+                "app": "$app"
+              },
+              "shouldDownsample": true,
+              "downsampleInterval": "$interval",
+              "shouldComputeRate": false,
+              "alias": ""
+            }
+          ],
+          "aliasColors": {},
+          "seriesOverrides": [],
+          "links": [],
+          "leftYAxisLabel": "Collections Per Period"
+        }
+      ]
+    }
+  ],
+  "nav": [
+    {
+      "type": "timepicker",
+      "enable": true,
+      "status": "Stable",
+      "time_options": [
+        "5m",
+        "15m",
+        "1h",
+        "6h",
+        "12h",
+        "24h",
+        "2d",
+        "7d",
+        "30d"
+      ],
+      "refresh_intervals": [
+        "5s",
+        "10s",
+        "30s",
+        "1m",
+        "5m",
+        "15m",
+        "30m",
+        "1h",
+        "2h",
+        "1d"
+      ],
+      "now": true,
+      "collapse": false,
+      "notice": false
+    }
+  ],
+  "time": {
+    "from": "now-1h",
+    "to": "now"
+  },
+  "templating": {
+    "list": [
+      {
+        "type": "custom",
+        "datasource": null,
+        "refresh_on_load": false,
+        "name": "host",
+        "options": [
+          {
+            "text": "pdk-pt-ceas-01",
+            "value": "pdk-pt-ceas-01"
+          }
+        ],
+        "includeAll": false,
+        "allFormat": "glob",
+        "query": "pdk-pt-ceas-01",
+        "current": {
+          "text": "pdk-pt-cetsd-01",
+          "value": "pdk-pt-cetsd-01"
+        }
+      },
+      {
+        "type": "custom",
+        "datasource": null,
+        "refresh_on_load": false,
+        "name": "app",
+        "options": [
+          {
+            "text": "ecs",
+            "value": "ecs"
+          },
+          {
+            "text": "ecsgateway",
+            "value": "ecsgateway"
+          }
+        ],
+        "includeAll": false,
+        "allFormat": "glob",
+        "query": "ecs, ecsgateway",
+        "current": {
+          "text": "test",
+          "value": "test"
+        }
+      },
+      {
+        "type": "interval",
+        "datasource": null,
+        "refresh_on_load": false,
+        "name": "interval",
+        "options": [
+          {
+            "text": "auto",
+            "value": "$__auto_interval"
+          },
+          {
+            "text": "1m",
+            "value": "1m"
+          },
+          {
+            "text": "10m",
+            "value": "10m"
+          },
+          {
+            "text": "30m",
+            "value": "30m"
+          },
+          {
+            "text": "1h",
+            "value": "1h"
+          },
+          {
+            "text": "6h",
+            "value": "6h"
+          },
+          {
+            "text": "12h",
+            "value": "12h"
+          },
+          {
+            "text": "1d",
+            "value": "1d"
+          },
+          {
+            "text": "7d",
+            "value": "7d"
+          },
+          {
+            "text": "14d",
+            "value": "14d"
+          },
+          {
+            "text": "30d",
+            "value": "30d"
+          }
+        ],
+        "includeAll": false,
+        "allFormat": "glob",
+        "query": "1m,10m,30m,1h,6h,12h,1d,7d,14d,30d",
+        "auto": true,
+        "current": {
+          "text": "auto",
+          "value": "$__auto_interval"
+        },
+        "auto_count": 3
+      },
+      {
+        "type": "custom",
+        "datasource": null,
+        "refresh_on_load": false,
+        "name": "memtype",
+        "options": [
+          {
+            "text": "*",
+            "value": "*"
+          },
+          {
+            "text": "heap",
+            "value": "heap"
+          },
+          {
+            "text": "non_heap",
+            "value": "non_heap"
+          }
+        ],
+        "includeAll": false,
+        "allFormat": "glob",
+        "query": "*,heap, non_heap",
+        "current": {
+          "text": "*",
+          "value": "*"
+        }
+      },
+      {
+        "type": "custom",
+        "datasource": null,
+        "refresh_on_load": false,
+        "name": "alloc",
+        "options": [
+          {
+            "text": "pctUsed|pctCapacity",
+            "value": "pctUsed|pctCapacity"
+          },
+          {
+            "text": "pctUsed",
+            "value": "pctUsed"
+          },
+          {
+            "text": "pctCapacity",
+            "value": "pctCapacity"
+          },
+          {
+            "text": "used",
+            "value": "used"
+          },
+          {
+            "text": "committed",
+            "value": "committed"
+          }
+        ],
+        "includeAll": false,
+        "allFormat": "glob",
+        "query": "pctUsed|pctCapacity,pctUsed,pctCapacity,used,committed",
+        "current": {
+          "text": "pctCapacity",
+          "value": "pctCapacity"
+        }
+      }
+    ],
+    "enable": true
+  },
+  "annotations": {
+    "list": []
+  },
+  "refresh": "5s",
+  "version": 6,
+  "hideAllLegends": false
+}

@@ -1,0 +1,306 @@
+{
+  "id": null,
+  "title": "TSDB-CSF Instrumented Methods",
+  "originalTitle": "TSDB-CSF Instrumented Methods",
+  "tags": [],
+  "style": "light",
+  "timezone": "browser",
+  "editable": true,
+  "hideControls": false,
+  "sharedCrosshair": true,
+  "rows": [
+    {
+      "title": "Row1",
+      "height": "250px",
+      "editable": true,
+      "collapse": false,
+      "panels": [
+        {
+          "title": "Instrumented Methods ($host / $app)",
+          "error": false,
+          "span": 12,
+          "editable": true,
+          "type": "graph",
+          "id": 1,
+          "datasource": null,
+          "renderer": "flot",
+          "x-axis": true,
+          "y-axis": true,
+          "y_formats": [
+            "ns",
+            "short"
+          ],
+          "grid": {
+            "leftMax": null,
+            "rightMax": null,
+            "leftMin": null,
+            "rightMin": null,
+            "threshold1": null,
+            "threshold2": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "lines": true,
+          "fill": 1,
+          "linewidth": 2,
+          "points": true,
+          "pointradius": 1,
+          "bars": false,
+          "stack": false,
+          "percentage": false,
+          "legend": {
+            "show": true,
+            "values": true,
+            "min": true,
+            "max": true,
+            "current": true,
+            "total": false,
+            "avg": true,
+            "alignAsTable": true,
+            "hideEmpty": true
+          },
+          "nullPointMode": "connected",
+          "steppedLine": false,
+          "tooltip": {
+            "value_type": "cumulative",
+            "shared": false
+          },
+          "targets": [
+            {
+              "errors": {
+                "downsampleInterval": "Invalid interval string, expexcting a number followed by one of \"Mwdhmsy\""
+              },
+              "aggregator": "avg",
+              "downsampleAggregator": "avg",
+              "metric": "method.elapsedns",
+              "currentTagKey": "",
+              "currentTagValue": "",
+              "tags": {
+                "host": "$host",
+                "app": "$app",
+                "class": "$class",
+                "method": "$method",
+                "package": "$package"
+              },
+              "shouldDownsample": true,
+              "downsampleInterval": "$interval"
+            }
+          ],
+          "aliasColors": {},
+          "seriesOverrides": [],
+          "links": [],
+          "leftYAxisLabel": "Average Elapsed Time",
+          "height": "600"
+        }
+      ]
+    }
+  ],
+  "nav": [
+    {
+      "type": "timepicker",
+      "enable": true,
+      "status": "Stable",
+      "time_options": [
+        "5m",
+        "15m",
+        "1h",
+        "6h",
+        "12h",
+        "24h",
+        "2d",
+        "7d",
+        "30d"
+      ],
+      "refresh_intervals": [
+        "5s",
+        "10s",
+        "30s",
+        "1m",
+        "5m",
+        "15m",
+        "30m",
+        "1h",
+        "2h",
+        "1d"
+      ],
+      "now": true,
+      "collapse": false,
+      "notice": false
+    }
+  ],
+  "time": {
+    "from": "now-15m",
+    "to": "now"
+  },
+  "templating": {
+    "list": [
+      {
+        "type": "custom",
+        "datasource": null,
+        "refresh_on_load": false,
+        "name": "host",
+        "options": [
+          {
+            "text": "pdk-pt-ceas-01",
+            "value": "pdk-pt-ceas-01"
+          }
+        ],
+        "includeAll": false,
+        "allFormat": "glob",
+        "query": "pdk-pt-ceas-01",
+        "current": {
+          "text": "pdk-pt-ceas-01",
+          "value": "pdk-pt-ceas-01"
+        }
+      },
+      {
+        "type": "custom",
+        "datasource": null,
+        "refresh_on_load": false,
+        "name": "app",
+        "options": [
+          {
+            "text": "ecs",
+            "value": "ecs"
+          },
+          {
+            "text": "ecsgateway",
+            "value": "ecsgateway"
+          }
+        ],
+        "includeAll": false,
+        "allFormat": "glob",
+        "query": "ecs, ecsgateway",
+        "current": {
+          "text": "ecs",
+          "value": "ecs"
+        }
+      },
+      {
+        "type": "interval",
+        "datasource": null,
+        "refresh_on_load": false,
+        "name": "interval",
+        "options": [
+          {
+            "text": "auto",
+            "value": "$__auto_interval"
+          },
+          {
+            "text": "1m",
+            "value": "1m"
+          },
+          {
+            "text": "10m",
+            "value": "10m"
+          },
+          {
+            "text": "30m",
+            "value": "30m"
+          },
+          {
+            "text": "1h",
+            "value": "1h"
+          },
+          {
+            "text": "6h",
+            "value": "6h"
+          },
+          {
+            "text": "12h",
+            "value": "12h"
+          },
+          {
+            "text": "1d",
+            "value": "1d"
+          },
+          {
+            "text": "7d",
+            "value": "7d"
+          },
+          {
+            "text": "14d",
+            "value": "14d"
+          },
+          {
+            "text": "30d",
+            "value": "30d"
+          }
+        ],
+        "includeAll": false,
+        "allFormat": "glob",
+        "query": "1m,10m,30m,1h,6h,12h,1d,7d,14d,30d",
+        "auto": true,
+        "current": {
+          "text": "auto",
+          "value": "$__auto_interval"
+        },
+        "auto_count": 5
+      },
+      {
+        "type": "custom",
+        "datasource": null,
+        "refresh_on_load": false,
+        "name": "method",
+        "options": [
+          {
+            "text": "*",
+            "value": "*"
+          }
+        ],
+        "includeAll": false,
+        "allFormat": "glob",
+        "query": "*",
+        "current": {
+          "text": "*",
+          "value": "*"
+        }
+      },
+      {
+        "type": "custom",
+        "datasource": null,
+        "refresh_on_load": false,
+        "name": "class",
+        "options": [
+          {
+            "text": "*",
+            "value": "*"
+          }
+        ],
+        "includeAll": false,
+        "allFormat": "glob",
+        "query": "*",
+        "current": {
+          "text": "*",
+          "value": "*"
+        }
+      },
+      {
+        "type": "custom",
+        "datasource": null,
+        "refresh_on_load": false,
+        "name": "package",
+        "options": [
+          {
+            "text": "*",
+            "value": "*"
+          }
+        ],
+        "includeAll": false,
+        "allFormat": "glob",
+        "query": "*",
+        "current": {
+          "text": "*",
+          "value": "*"
+        }
+      }
+    ],
+    "enable": true
+  },
+  "annotations": {
+    "list": []
+  },
+  "refresh": "10s",
+  "version": 6,
+  "hideAllLegends": false
+}
